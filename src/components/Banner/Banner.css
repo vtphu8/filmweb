@@ -1,0 +1,30 @@
+.banner {
+    width: 100%;
+    height: auto;
+}
+
+.banner img {
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+}
+
+.banner>div {
+    margin: 0;
+    width: 35rem;
+    position: absolute;
+    top: 20rem;
+    left: 8rem;
+    color: cornsilk;
+}
+
+.banner button {
+    background-color: rgba(3, 3, 3, 0.3);
+    color: cornsilk;
+    padding: 0.8em 1.5em;
+    border: none;
+}
+
+.banner button:nth-child(2) {
+    margin-left: 1em;
+}

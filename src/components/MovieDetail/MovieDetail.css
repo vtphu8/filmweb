@@ -1,0 +1,20 @@
+.movieDetail {
+    margin: 2rem;
+    color: azure;
+    display: flex;
+}
+
+.detailContent {
+    width: 50%;
+}
+
+.detailVideo {
+    width: 50%;
+    height: 400px;
+    padding: 10px;
+}
+
+.detailVideo img {
+    height: 400px;
+    width: auto;
+}

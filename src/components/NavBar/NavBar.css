@@ -1,0 +1,39 @@
+.NavBar {
+    width: 100%;
+    background-color: none;
+    position: fixed;
+    height: 2rem;
+    /* hiển thị trên banner */
+}
+
+.NavBar {
+    padding: 0;
+    transition: 1s;
+}
+
+.NavBar a:first-child {
+    text-decoration: none;
+    color: red;
+    font-weight: bolder;
+    font-size: 1.2em;
+    position: fixed;
+    float: left;
+
+}
+
+.NavBar a:nth-child(2) {
+    position: absolute;
+    right: 20px;
+    top: 5px;
+    transition: 1s;
+}
+
+.NavBar svg {
+    width: 20px;
+    height: auto;
+}
+
+.test {
+    background-color: #777;
+    height: 2000px;
+}

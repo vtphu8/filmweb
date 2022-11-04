@@ -1,0 +1,17 @@
+.searchResult {
+    position: relative;
+    top: 8rem;
+}
+
+.resultList {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding: 2rem;
+    display: flex;
+    overflow-x: auto;
+}
+
+.resultList img {
+    margin-top: 1rem;
+    width: cal(100%/8);
+}

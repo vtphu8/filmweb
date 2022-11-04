@@ -1,0 +1,58 @@
+.searchForm {
+    position: relative;
+    top: 5rem;
+    text-align: center;
+    padding-left: 30%;
+    padding-right: 30%;
+}
+
+.wrapper {
+    background-color: white;
+    height: 10rem;
+}
+
+.wrapper svg {
+    width: 20px;
+    height: auto;
+}
+
+.topForm {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 0.2rem solid #00bbec;
+}
+
+.wrapper input {
+    border: none;
+    background-color: none;
+    width: 90%;
+    font-size: 1.2rem;
+}
+
+.border {
+    border-bottom: 2px;
+    border: cyan;
+}
+
+.botForm {
+    text-align: right;
+    padding-top: 1rem;
+    padding-right: 1rem;
+}
+
+.botForm button {
+    border: none;
+    font-size: 1.25rem;
+    padding: 0.3rem;
+    margin-right: 1rem;
+}
+
+.resetBtn {
+    background-color: white;
+    margin-right: 0.5rem;
+}
+
+.searchBtn {
+    background-color: #00bbec;
+    color: white;
+}
