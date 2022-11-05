@@ -5,7 +5,7 @@ const Banner = () => {
   const [bannerFilm, setBannerFilm] = useState({});
   const fetchData = useCallback(() => {
     fetch(
-      `https://api.themoviedb.org/3/discover/tv?api_key=9d7b2325092f152dc0037a909884bcfb&with_network=123`
+      `https://api.themoviedb.org/3/discover/movie?api_key=9d7b2325092f152dc0037a909884bcfb&with_network=123`
     )
       .then((response) => response.json())
       .then((data) => {

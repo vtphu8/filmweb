@@ -6,6 +6,7 @@ const OriginalList = () => {
   const [results, setResults] = useState([]);
   const [showDetail, setShowDetail] = useState(false); // Kiểm soát trạng thái ẩn/ hiện khi click vào chi tiết từng phim
   const [movieData, setMovieData] = useState({}); // Kiểm soát thông tin của phim được click vào.
+  const [onShowMovieId, setOnShowMovieId] = useState(0); // Lấy id của phim cũ, để so sánh khi click vào 1 bộ phim khác
   const getData = (listItem) => {
     setResults(listItem);
   };
@@ -31,7 +32,13 @@ const OriginalList = () => {
                 vote: item.vote_average,
                 details: item.overview || "This movie have no description.",
               });
-              setShowDetail(!showDetail);
+              if (onShowMovieId === item.id) {
+                setShowDetail(!showDetail); // chuyển trạng thái đóng/mở chi tiết phim nếu click vào phim cũ
+              } else {
+                setShowDetail(true);
+              }
+              setOnShowMovieId(item.id); // Lưu lại thông tin id phim hiện tại để khi click vào phim mới đem ra so sánh, nếu id phim mới khác phim cũ thì hiển thị thông tin phim mới, nếu giống id cũ thì đóng thẻ MovieDetail
+
               // console.log(movieData); // Chỗ này kiểm tra có thông tin
             }}
           ></img>

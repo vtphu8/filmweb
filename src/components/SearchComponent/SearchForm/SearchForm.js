@@ -7,20 +7,21 @@ const SearchForm = (props) => {
   };
   const resetHandler = (event) => {
     event.preventDefault(); // ngăn sự kiện submit
-    setEnteredMovie("");
+    setEnteredMovie(""); // làm mới input
   };
   const searchHandler = (event) => {
     event.preventDefault(); // ngăn sự kiện submit
     // console.log(props);
     props.getInputData(enteredMovie); // truyền dữ liệu được nhập lên component cha
-    setEnteredMovie("");
+    // setEnteredMovie("");
   };
   const handleKeyPress = (event) => {
+    // Bắt sự kiện bấm nút enter
     if (event.key === "Enter") {
       event.preventDefault(); // ngăn sự kiện submit
       // console.log(props);
       props.getInputData(enteredMovie); // truyền dữ liệu được nhập lên component cha
-      setEnteredMovie("");
+      // setEnteredMovie("");
     }
   };
   return (

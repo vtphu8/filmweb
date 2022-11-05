@@ -1,0 +1,40 @@
+.MovieSection {
+    background-color: #111;
+}
+
+.MovieSection>h2 {
+    color: azure;
+    margin-left: 2.2rem;
+}
+
+.MovieList {
+    background-color: #111;
+    padding: 2rem;
+    display: flex;
+    overflow-x: auto;
+}
+
+.imgItem {
+    height: 12rem;
+    width: auto;
+    margin-left: 1rem;
+    transition-duration: 0.5s;
+    /* Safari */
+    -webkit-transition-duration: 0.5s;
+    /* Mozilla Firefox */
+    -moz-transition-duration: 0.5s;
+    /* Opera */
+    -o-transition-duration: 0.5s;
+    /* IE 9 */
+    -ms-transition-duration: 0.5s;
+}
+
+.imgItem:hover {
+    /* Hiệu ứng khi đưa chuột vào hình ảnh */
+    transform: scale(1.2);
+    -webkit-transform: scale(1.2);
+    -moz-transform: scale(1.2);
+    -o-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    cursor: pointer;
+}

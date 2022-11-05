@@ -14,7 +14,10 @@
     padding: 10px;
 }
 
-.detailVideo img {
-    height: 400px;
-    width: auto;
+.detailImage {
+    max-width: 80%;
+    max-height: 400px;
+    height: auto;
+    width: 100%;
+    display: block;
 }

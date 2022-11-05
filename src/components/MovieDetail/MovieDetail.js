@@ -2,8 +2,7 @@ import { memo, useCallback, useEffect, useState } from "react";
 import "./MovieDetail.css";
 import React from "react";
 const MovieDetail = (props) => {
-  console.log(props);
-  //   const url = `https://api.themoviedb.org/3/movie/${props.movieId}/videos?api_key=<9d7b2325092f152dc0037a909884bcfb>&language=en-US`;
+  // console.log("Đây là props", props);
   const movieId = props.movieId;
   const movieImg = `https://image.tmdb.org/t/p/original` + props.movieImg;
   const [videoData, setVideoData] = useState([]);
@@ -30,13 +29,13 @@ const MovieDetail = (props) => {
     fetchMovieData();
   }, [fetchMovieData]);
 
-  console.log(videoData);
+  // console.log(videoData);
 
   if (videoData.length !== 0) {
     videoData.forEach((element) => {
       if (
         element.site === `YouTube` &&
-        (element.type === `Trailer` || element.type === `Teaser`)
+        (element.type === `Trailer` || element.type === `Teaser`) // Kiểm tra để lấy được đúng video trailer hoặc teaser từ youtube
       ) {
         youtubeVideoLink = `https://www.youtube.com/embed/` + element.key;
       }
@@ -55,6 +54,7 @@ const MovieDetail = (props) => {
         <div className="detailVideo">
           {videoData.length === 0 ? (
             <img
+              className="detailImage"
               style={{ maxWidth: "600px" }}
               src={movieImg}
               alt={props.movieName}

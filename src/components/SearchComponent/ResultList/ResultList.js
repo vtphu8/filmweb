@@ -4,7 +4,7 @@ import "./ResultList.css";
 const ResultList = (props) => {
   // console.log(props.input);
   const imgPath = `https://image.tmdb.org/t/p/original`; // url để gắn với imgUrl
-  const input = props.input;
+  const input = props.input || "";
   const url =
     `https://api.themoviedb.org/3/search/movie?api_key=9d7b2325092f152dc0037a909884bcfb&language=en-US&page=1&query=` +
     input;
@@ -12,13 +12,14 @@ const ResultList = (props) => {
 
   const [showDetail, setShowDetail] = useState(false); // Kiểm soát trạng thái ẩn/ hiện khi click vào chi tiết từng phim
   const [movieData, setMovieData] = useState({}); // Kiểm soát thông tin của phim được click vào.
+  const [onShowMovieId, setOnShowMovieId] = useState(0); // Lấy id của phim cũ, để so sánh khi click vào 1 bộ phim khác
 
   const fetchData = useCallback(async () => {
     if (input) {
       //Nếu lấy được dữ liệu thì mới fetchData
       const reponse = await fetch(url);
       const data = await reponse.json();
-      console.log("dữ liệu tìm kiếm:", data.results);
+      // console.log("dữ liệu tìm kiếm:", data.results);
       setSearchResult(data.results);
     }
   }, [input, url]);
@@ -43,7 +44,7 @@ const ResultList = (props) => {
                     setMovieData({
                       // Lưu trữ thông tin của phim
                       movieId: item.id,
-                      movieName: item.name,
+                      movieName: item.title,
                       img: item.backdrop_path,
                       releaseDate: item.release_date || item.first_air_date,
                       vote: item.vote_average,
@@ -51,7 +52,13 @@ const ResultList = (props) => {
                         item.overview || "This movie have no description.",
                     });
                     setShowDetail(!showDetail);
-                    // console.log(movieData); // Chỗ này kiểm tra có thông tin
+
+                    if (onShowMovieId === item.id) {
+                      setShowDetail(!showDetail); // chuyển trạng thái đóng/mở chi tiết phim nếu click vào phim cũ
+                    } else {
+                      setShowDetail(true);
+                    }
+                    setOnShowMovieId(item.id); // Lưu lại thông tin id phim hiện tại để khi click vào phim mới đem ra so sánh, nếu id phim mới khác phim cũ thì hiển thị thông tin phim mới, nếu giống id cũ thì đóng thẻ MovieDetail
                   }}
                 ></img>
               )
@@ -60,7 +67,10 @@ const ResultList = (props) => {
           <div>No Result</div>
         )}
       </div>
-      {!input && <p style={{ color: `red` }}>Please insert your keyword</p>}
+      {(!input || input.trim() === "") && (
+        //Kiểm tra input của người dùng có hợp lệ hay ko?
+        <p style={{ color: `red` }}>Please insert your keyword</p>
+      )}
       {showDetail && ( // Hiển thị thông tin phim khi trang thái này thay đổi
         <MovieDetail
           movieId={movieData.movieId}
